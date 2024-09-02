@@ -1,0 +1,9 @@
+{% extends "templates/base.jinja2" %}
+
+{% block body %}
+    <div class="blog-card">
+        <h2 class="title">{{post.title}}</h2>
+        <p class="author">{{post.author}}</p>
+        <p class="info">{{post.info|safe}}</p>
+    </div>
+{% endblock %}

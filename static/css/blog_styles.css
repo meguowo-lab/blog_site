@@ -1,0 +1,45 @@
+*{
+    margin: 0px;
+    border: 0px;
+    color: #EDF5E1;
+    font-size: large;
+}
+
+body{
+    background-color: #05386B;
+}
+
+
+.blog-card{
+    margin: auto;
+    width: 80%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    min-height: 10vh;
+    background-color: #379683;
+    padding: 5%;
+}
+
+.title{
+    font-size: 2rem;
+}
+
+.author{
+    font-size: 1rem;
+}
+
+.info{
+    margin-top: 20px;
+}
+
+header{
+    height: 4rem;
+    background-color: #379683;
+    margin-bottom: 50px;
+}
+
+header a{
+    font-size: 3rem;
+    height: 100%;
+    text-decoration: none;
+}

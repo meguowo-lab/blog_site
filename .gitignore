@@ -1,0 +1,5 @@
+.env
+app/migrations/versions
+.ruff_cache
+.vscode
+*/__pycache__

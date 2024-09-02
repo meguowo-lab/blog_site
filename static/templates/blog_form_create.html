@@ -1,0 +1,13 @@
+{% extends "sqladmin/create.html" %}
+{% block tail %}
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script>
+        infoField = document.getElementById("info")
+        ClassicEditor
+            .create(infoField).then(editor => {
+                editor.model.document.on("change", (a) => {
+                    infoField.value = editor.getData()
+                })
+            })
+    </script>
+{% endblock %}

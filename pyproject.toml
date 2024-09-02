@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "celestiumblog"
+version = "0.1.0"
+description = ""
+authors = ["meguowo-lab <file.name.infected@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.2"
+sqlmodel = "^0.0.21"
+pydantic-settings = "^2.4.0"
+uvicorn = "^0.30.6"
+aiomysql = "^0.2.0"
+alembic = "^1.13.2"
+cryptography = "^43.0.0"
+sqladmin = "^0.18.0"
+itsdangerous = "^2.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
