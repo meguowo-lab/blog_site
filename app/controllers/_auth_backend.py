@@ -5,10 +5,9 @@ from sqladmin.authentication import AuthenticationBackend
 from sqlalchemy.orm import joinedload
 from starlette.status import HTTP_400_BAD_REQUEST
 
-from ..settings import settings
-
 from ..database import database
 from ..models import Account
+from ..settings import settings
 from .dependencies.auth import LoginRequired, PermissionsRequired
 from .managers.model import ModelManager
 
@@ -16,10 +15,8 @@ from .managers.model import ModelManager
 class AuthBackend(AuthenticationBackend):
     async def login(self, request: Request) -> bool:
         data = await request.form()
-        return await database.run_with_session(
-            self._login, data=data, req=request
-        )  # type: ignore
-    
+        return await database.run_with_session(self._login, data=data, req=request)  # type: ignore
+
     async def _login(self, req: Request, data: dict[str, str], session) -> bool:
         account: Account | None = await ModelManager(
             model=Account,
@@ -29,7 +26,7 @@ class AuthBackend(AuthenticationBackend):
 
         if account is None or not account.check_password(data["password"]):
             return False
-        
+
         account.refresh_session()
         account.save(session)
         req.session.update({"session_uuid": str(account.session.uuid)})
